@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://subbit.xyz/schemas/acc-man",
+  "title": "AccMan",
+  "description": "A simple account manager",
+  "$defs": {
+    "credential": {
+      "description": "Account credential, bytes in base64",
+      "type": "string",
+      "pattern": "^([\\w-]{4})*(?:[\\w-]{4}|[\\w-]{3}=|[\\w-]{2}={2})$"
+    },
+    "amount": {
+      "description": "An amount, positive or negative, in digits",
+      "type": "string",
+      "pattern": "^(-?[1-9]([0-9])*)$"
+    },
+    "totQuery": {
+      "description": "tot query string",
+      "type": "object",
+      "properties": {
+        "cred": {
+          "$ref": "#/$defs/credential"
+        }
+      },
+      "required": ["cred"],
+      "additionalProperties": false
+    },
+    "totRes": {
+      "description": "tot response",
+      "type": "string",
+      "properties": {
+        "cred": {
+          "$ref": "#/$defs/amount"
+        }
+      },
+      "required": ["cred"],
+      "additionalProperties": false
+    },
+    "modQuery": {
+      "description": "mod query string",
+      "type": "object",
+      "properties": {
+        "cred": {
+          "$ref": "#/$defs/credential"
+        },
+        "by": {
+          "description": "amount to modify account",
+          "$ref": "#/$defs/amount"
+        }
+      },
+      "required": ["cred", "by"],
+      "additionalProperties": false
+    }
+  }
+}

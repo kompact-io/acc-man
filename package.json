@@ -1,0 +1,37 @@
+{
+  "name": "AccMan",
+  "version": "0.0.1",
+  "description": "A simple account manager",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check-types": "tsc --project ./jsconfig.json",
+    "doc": "jsdoc ./src",
+    "start": "fastify start -l info src/index.js --options --port 7829"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.6.3",
+  "dependencies": {
+    "@fastify/leveldb": "^6.1.0",
+    "@fastify/sensible": "^6.0.3",
+    "@fastify/type-provider-json-schema-to-ts": "^5.0.0",
+    "cbor-x": "^1.6.0",
+    "classic-level": "^2.0.0",
+    "fastify": "^5.2.2",
+    "fastify-cli": "^7.4.0",
+    "fastify-plugin": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/abstract-leveldown": "^7.2.5",
+    "@types/levelup": "^5.1.5",
+    "abstract-level": "^3.0.1",
+    "abstract-leveldown": "^7.2.0",
+    "json-schema-to-ts": "^3.1.1",
+    "json-schema-to-typescript": "^15.0.4",
+    "levelup": "^5.1.1",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}

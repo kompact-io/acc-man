@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "noStrictGenericChecks": false,
+    "strictPropertyInitialization": true,
+    "resolveJsonModule": true,
+    "strictBindCallApply": true,
+    "skipLibCheck": true, // Faster
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "checkJs": true,
+    "allowJs": true,
+    "declaration": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "dist"
+  },
+  "verbose": true,
+  "include": ["./src/**/*.js"]
+}
