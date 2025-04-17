@@ -52,7 +52,6 @@ sequenceDiagram
     Server->>Server: process
     Server->>AccMan: update balance?
     Server->>Client: response<br/>with balance
-</pre>
 ```
 
 Our server needs to be adapted to handle the additional logic. Namely:
