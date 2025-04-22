@@ -5,7 +5,7 @@ import { Config } from "./config";
 declare module "fastify" {
   interface FastifyInstance {
     tot(cred: string): Promise<bigint>;
-    mod(cred: string, amt: bigint): Promise<Void>;
+    mod(cred: string, amt: bigint): Promise<bigint>;
   }
 }
 

@@ -34,10 +34,13 @@ async function Db(fastify, opts) {
         { type: "put", key, value: encode(val + amt) },
         { type: "put", key: key2, value: encode(val + amt) },
       ]);
-    return fastify.level.db.get(key).then(
-      (x) => tx(decode(x)),
-      (_) => tx(0n),
-    );
+    return fastify.level.db
+      .get(key)
+      .then(
+        (x) => tx(decode(x)),
+        (_) => tx(0n),
+      )
+      .then((_) => fastify.tot(cred));
   });
 }
 

@@ -91,7 +91,7 @@ The project uses the fastify framework with a leveldb database.
 ## Todos
 
 - [x] basic api
-- [ ] add `/past` to see account past
+- [ ] add `/past` to see account past.
 - [ ] basic tests
 
 ## Notes

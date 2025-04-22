@@ -19,7 +19,7 @@ async function routes(fastify) {
     function (req, res) {
       const { cred, by } = /** @type {types.ModQuery} */ (req.query);
       fastify.mod(cred, BigInt(by)).then(
-        () => res.code(204).send(),
+        (tot) => res.code(200).send(tot.toString()),
         (err) => res.code(500).send(err),
       );
     },
