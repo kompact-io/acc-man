@@ -11,6 +11,15 @@ shell or otherwise
 pnpm i && pnpm start
 ```
 
+There are some helper function with `just`
+
+```sh
+just mod deadbeef 100
+just tot deadbeef
+```
+
+(Remember the credentials must be valid base64).
+
 ## What is AccMan?
 
 Suppose we provide a service running through a web-api. We some servers and the
