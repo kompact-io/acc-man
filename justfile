@@ -1,4 +1,4 @@
-base_url:=env('ACCMAN_URL', "http://127.0.0.1:7830")
+base_url:=env('ACCMAN_URL', "http://127.0.0.1:22262")
 
 # Get help
 help:

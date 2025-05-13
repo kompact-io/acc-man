@@ -22,6 +22,10 @@ async function Db(fastify, opts) {
     },
   });
 
+  fastify.decorate("other", function (/** @type {Buffer} */ cred) {
+    return "hello world";
+  });
+
   fastify.decorate("tot", function (/** @type {string} */ cred) {
     return fastify.level.db.get(b64Dec(cred)).then(decode);
   });

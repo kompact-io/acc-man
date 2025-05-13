@@ -4,6 +4,7 @@ import { Config } from "./config";
 
 declare module "fastify" {
   interface FastifyInstance {
+    other(cred: Buffer): Promise<string>;
     tot(cred: string): Promise<bigint>;
     mod(cred: string, amt: bigint): Promise<bigint>;
   }
