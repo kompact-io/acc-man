@@ -2,27 +2,48 @@
 
 > A simple account manager
 
-## Usage
+## Setup
 
-This repo uses nix flakes. Dependencies include `nodejs pnpm just`. From a dev
-shell or otherwise
+This repo uses nix flakes including a devshell with dependencies include.
+Alternatively, ensure `nodejs`, `pnpm`, and `just` are on path, and it will
+probably be fine (ymmv).
 
-```bash
-pnpm i && pnpm start
-```
-
-There are some helper function with `just`
+Install JS package dependencies:
 
 ```sh
-just mod deadbeef 100
-just tot deadbeef
+pnpm i
 ```
 
-(Remember the credentials must be valid base64).
+Start AccMan:
+
+```
+pnpm start
+```
+
+There are some helper function accessible via `just`.
+
+To create a new account, simply `mod` the balance.
+
+```sh
+just mod abcdefghijklmnopqrstuvwxyz0123456789-_== 1
+```
+
+Repeating the above command will increase the associated tot. Setting a negative
+`by` will decrease the `tot`.
+
+To get current `tot`
+
+```
+just tot abcdefghijklmnopqrstuvwxyz0123456789-_==
+```
+
+Credentials must be valid `base64url` including padding.
+
+Both the `justfile` and the AccMan server inspect the `.env` file if it exists.
 
 ## What is AccMan?
 
-Suppose we provide a service running through a web-api. We some servers and the
+Suppose we provide a service running through a web API. We some servers and the
 consumers of the service run clients. A usual bit of service looks like:
 
 ```mermaid
@@ -106,3 +127,11 @@ The project uses the fastify framework with a leveldb database.
 ## Notes
 
 Why is `mod` a patch request? Because it has side effects.
+
+Its not clear to me whether there is sufficient motivation for this. I don't
+know how offensive people would find it to have a non-idempotent `put`.
+
+This works less well when trying to align with [SubbitMan][subbit-man-gh].
+Perhaps it will be changed in future.
+
+[subbit-man-gh]: https://github.com/kompact-io/subbit-man-js

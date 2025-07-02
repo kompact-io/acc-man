@@ -2,7 +2,7 @@ import fastifyPlugin from "fastify-plugin";
 import fastifyLeveldb from "@fastify/leveldb";
 import { decode, encode } from "cbor-x";
 
-const b64Dec = (/** @type {string} */ s) => Buffer.from(s, "base64");
+const b64Dec = (/** @type {string} */ s) => Buffer.from(s, "base64url");
 // const b64Enc = (/** @type {Buffer} */ b) => b.toString('base64')
 
 /**
@@ -20,10 +20,6 @@ async function Db(fastify, opts) {
       keyEncoding: "binary",
       valueEncoding: "binary",
     },
-  });
-
-  fastify.decorate("other", function (/** @type {Buffer} */ cred) {
-    return "hello world";
   });
 
   fastify.decorate("tot", function (/** @type {string} */ cred) {
